@@ -1,0 +1,125 @@
+.w3-content{
+     max-width:800px;
+     margin: auto;
+     margin-bottom:50px;
+     position:relative;
+     box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.w3-center{
+     width: 100%;
+     position:absolute;
+     bottom:150px;
+    display:flex;
+    justify-content:space-between;
+    color:white;
+}
+
+.w3-left{
+     cursor: pointer;
+     font-size: 30px;
+     padding: 10px;
+     opacity:50%;
+}
+
+.w3-hover-text-khaki:hover{
+    color: white;
+    opacity:0%;
+}
+
+.game-updates{
+     padding: 20px;
+     color: white;
+     border-radius: 2em;
+     box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+     background-color: rgb(19,19,19);
+     margin: 20px;
+}
+
+.recommended{
+     padding: 20px;
+     color: white;
+     border-radius: 2em;
+     box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+     background-color: rgb(19,19,19);
+     margin: 20px;
+}
+
+.bento-recommend{
+ display: grid;
+ align-items: center;
+ justify-content: start;
+    grid-template-areas: 
+        "box-1 box-2"
+        "box-3 box-4";
+    border: 10px solid black;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+
+.bento-1{
+     grid-area: box-1;
+     width: 500px;
+}
+.bento-2{
+     grid-area: box-2;
+     width: 300px;
+
+}
+.bento-3{
+     grid-area: box-3;
+     width: 500px;
+}
+
+.bento-4{
+     grid-area: box-4;
+}
+
+@media (max-width: 768px)
+{
+     .game-updates{
+          padding: 20px;
+          border-radius: 0px;
+     }
+     .w3-center{
+          top: 8em;
+          align-items: center;
+     }
+     .bento-recommend{
+          display: grid;
+          grid-template-areas: 'box-1 box-1 box-4'
+                                'box-2 box-3 box-4';
+     }
+
+     .bento-recommend img{
+          border-radius: 1em;
+     }
+
+     .bento-1{
+          width: 250px;
+          grid-area: box-1;
+     }
+     .bento-2{
+          width: 120px;
+          grid-area: box-2;
+     }
+     .bento-3{
+          width: 120px;
+          grid-area: box-3;
+     }
+     .bento-4{
+          width: 150px;
+          grid-area: box-4;
+     }
+     
+}
+
+@media (max-width: 370px){
+      .bento-recommend{
+          display: grid;
+          grid-template-areas: 'box-1 box-1'
+                                'box-2 box-3'
+                                'box-4 box-4';
+     }
+}

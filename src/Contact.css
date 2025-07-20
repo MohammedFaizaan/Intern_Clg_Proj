@@ -1,0 +1,110 @@
+.contact-container{
+    color: rgb(79, 126, 255);
+    padding: 30px;
+    margin:50px 10px;
+    background-color: rgb(19, 19, 19);
+    border-radius: 2em;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.contact-container h1{
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+.contact-container h3{
+    padding: 10px;
+    color: white;
+}
+
+.contacts-links{
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: #222;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.con-img1{
+    width: 250px;
+    height: 200px;
+    position: absolute;
+    right: 70px;
+    top: 177px;
+}
+
+.social-media{
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: #222;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.social-media a{
+    font-size: larger;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover{
+    color: #fdfdfd;
+    text-decoration: underline;
+}
+
+.con-img2{
+    width: 260px;
+    height: 220px;
+    position: absolute;
+    right: 70px;
+    top: 456px; 
+}
+
+.discord{
+    color: #5865F2;
+}
+
+.twitter{
+    color: black;
+}
+
+.instagram{
+    color: #E1306C;
+}
+
+.facebook{
+    color: #1877F2;
+}
+
+.youtube{
+    color: #FF0000;
+}
+
+.twitch{
+    color: #6441A4;
+}
+
+.contact-form{
+    padding: 30px;
+    background-color: #222;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.con-img3{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 70px;
+    top: 750px; 
+}
+
+.contact-form textarea{
+    width: 300px;
+    height: 100px;
+    position: relative;
+    top: 5px;
+}
+
+.contact-form button{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 30px;
+}

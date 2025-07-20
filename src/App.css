@@ -1,0 +1,154 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: "Poppins", serif;
+  padding: 0%;
+  margin: 0%;
+}
+
+.App ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.App li {
+  float: left;
+}
+
+.App a {
+  display: block;
+  color: white;
+  font-size: 25px;
+  text-align: center; 
+  padding: 14px 16px;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 3px;
+  transition: all 0.4s;
+}
+
+li a:hover {
+  background-color: #111;
+  text-decoration-color: teal;
+}
+
+.Navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(19,19,19);
+  color: white;
+  box-shadow:0px 1px 8px 1px black;
+  padding: 0px 50px 0px 50px;
+}
+
+.App{
+  align-content: center;
+  align-items: center;
+  display: flex;
+}
+
+body{
+  background-color: #333;
+}
+
+.logo{
+  width: 40px;
+  margin-right: 5px;
+}
+
+.logo-name{
+  display: flex;
+}
+
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+  padding: 10px;
+}
+
+.hamburger .line {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  border-radius: 2px;
+}
+
+.nav-links {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Hamburger hidden by default */
+.hamburger {
+  display: none;
+}
+
+/* Mobile responsive behavior */
+@media (max-width: 768px) {
+  .Navbar{
+    display: flex;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 5px;
+    padding: 10px;
+    position: absolute;
+    right: 1em;
+  }
+
+  .hamburger .line {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    background-color: #222;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+    padding: 10px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links li {
+    padding: 10px;
+    text-align: left;
+  }
+
+  .user-welcome {
+    display: none;
+    margin: 0px;
+    padding: 0px;
+  }
+
+  .logo{
+    height: 3em;
+    width: 3em;
+  }
+  .logo-name{
+    position: relative;
+    right: 1em;
+  }
+  .logo-name h2{
+    top: 5px;
+    position: relative;
+  }
+}

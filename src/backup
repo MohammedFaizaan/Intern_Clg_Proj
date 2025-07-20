@@ -1,0 +1,783 @@
+<!--APP.JS-->
+
+import {BrowserRouter,Routes, Route, Link} from 'react-router-dom';
+import Footer from "./footer";
+import Content from "./content";
+import News from "./News";
+import About from "./About"
+import Contact from './Contact';
+import Games from './Games';
+import "./App.css";
+import "./script";
+
+function App() {
+  return (
+    <>
+    <BrowserRouter>
+        <div className="Navbar">
+          <div className='logo-name'>      {/* logo */}
+          <img src="/Ro-deck logo.png" className='logo' alt='rodeck-logo'></img>
+          <h2>Ro-Deck</h2>
+          </div>
+          <nav className="App">
+          <ul>                             {/* Navbar */}
+            <li>
+              <Link to="/" id="home1">Home</Link>
+            </li>
+            <li>
+              <Link to="/news" id="news2">News</Link>
+            </li>
+            <li>
+              <Link to="/Contact" id="contact3">Contact</Link>
+            </li>
+            <li>
+              <Link to="/about" id="about4">About</Link>
+            </li>
+            <li>
+              <Link to="/Games" id="game5">Games</Link>
+            </li>
+          </ul>                          {/* User name */}
+          <h2>-Welcome, User!</h2>
+          </nav>
+          </div> 
+          <Routes>
+            <Route path="/" element={<Content />}/>
+            <Route path="/News" element={<News />}/>
+            <Route path="/Contact" element={<Contact />}/>
+            <Route path="/About" element={<About />}/>
+            <Route path="/Games" element={<Games />}/>
+          </Routes>
+      <Footer />
+      </BrowserRouter>
+    </>
+  );
+}
+
+export default App;
+
+<!--APP.CS-->
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+  font-family: "Poppins", serif;
+  padding: 0%;
+  margin: 0%;
+}
+
+.App ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+.App li {
+  float: left;
+}
+
+.App a {
+  display: block;
+  color: white;
+  font-size: 25px;
+  text-align: center; 
+  padding: 14px 16px;
+  text-decoration-color: transparent;
+  text-decoration-thickness: 3px;
+  transition: all 0.4s;
+}
+
+li a:hover {
+  background-color: #111;
+  text-decoration-color: teal;
+}
+
+.Navbar{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(19,19,19);
+  color: white;
+  box-shadow:0px 1px 8px 1px black;
+  padding: 0px 50px 0px 50px;
+}
+
+.App{
+  align-content: center;
+  align-items: center;
+  display: flex;
+}
+
+body{
+  background-color: #333;
+}
+
+.logo{
+  width: 40px;
+  margin-right: 5px;
+}
+
+.logo-name{
+  display: flex;
+}
+
+<!--news.js-->
+
+import React, { useState } from "react";
+import "./News.css"
+
+function Slideshow() {
+  const [slideIndex, setSlideIndex] = useState(1);
+
+  const images = [
+    "https://bsmedia.business-standard.com/_media/bs/img/article/2024-11/21/full/1732183818-2065.png?im=FitAndFill=(826,465)",
+    "https://ridevideogame.com/wp-content/uploads/2024/01/Ride5_patch_cover_01.jpg",
+    "https://www.perfectly-nintendo.com/wp-content/uploads/2025/02/Minecraft-Spring-to-Life-800x445.jpg",
+  ];
+
+  const nextSlide = () => {
+    setSlideIndex((prevIndex) => (prevIndex === images.length ? 1 : prevIndex + 1));
+  };
+
+  const prevSlide = () => {
+    setSlideIndex((prevIndex) => (prevIndex === 1 ? images.length : prevIndex - 1));
+  };
+
+  return (
+    <>
+    <div className="w3-container">
+      <h2 className="game-updates">Game Updates</h2>
+      <div className="w3-content">
+        {/* Render images */}
+        {images.map((src, index) => (
+          <img
+            key={index}
+            className="mySlides"
+            src={src}
+            alt={`Slide ${index + 1}`}
+            style={{
+              width: "100%",
+              display: slideIndex === index + 1 ? "block" : "none"
+            }}
+          />
+        ))}
+
+        {/* Slide navigation */}
+        <div className="w3-center">
+          <div
+            className="w3-left w3-hover-text-khaki"
+            onClick={prevSlide}
+            style={{ cursor: "pointer", fontSize: "30px", padding: "10px", opacity:"50%"}}
+          >
+            &#10094;
+          </div>
+          <div
+            className="w3-right w3-hover-text-khaki"
+            onClick={nextSlide}
+            style={{ cursor: "pointer", fontSize: "30px", padding: "10px", opacity:"50%"}}
+          >
+            &#10095;
+          </div>
+        </div> 
+      </div>
+    </div>
+    <div className="recommended">
+      <h2>Recommended Games</h2>
+      <div className="bento-recommend">
+        <img src="https://shared.cloudflare.steamstatic.com/store_item_assets/steam/apps/3241660/1ea445e044a2d5b09cfa8291350b63ebed6e5741/header.jpg?t=1743517226" className="bento-1" alt="R.E.P.O pic"></img>
+        <img src="https://upload.wikimedia.org/wikipedia/en/c/c7/Helldivers_art.jpg"className="bento-2" alt="Helldivers pic"></img>
+        <img src="https://assets-prd.ignimgs.com/2024/01/19/palworld-1705691572614.jpg"className="bento-3" alt="Pal world pic"></img>
+        <img src="https://upload.wikimedia.org/wikipedia/en/f/f2/CS2_Cover_Art.jpg" alt="csgo"></img>
+      </div>
+    </div>
+    </>
+  );
+}
+
+export default Slideshow; 
+
+
+<!--NEWS.CSS-->
+
+.w3-content{
+    max-width:800px;
+    margin: auto;
+    margin-bottom:50px;
+    position:relative;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.w3-center{
+    width: 100%;
+    position:absolute;
+    bottom:150px;
+   display:flex;
+   justify-content:space-between;
+   color:white;
+}
+
+.w3-left{
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px;
+    opacity:50%;
+}
+
+.w3-hover-text-khaki:hover{
+   color: white;
+   opacity:0%;
+}
+
+.game-updates{
+    padding: 20px;
+    color: white;
+    border-radius: 2em;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+    background-color: rgb(19,19,19);
+    margin: 20px;
+}
+
+.recommended{
+    padding: 20px;
+    color: white;
+    border-radius: 2em;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+    background-color: rgb(19,19,19);
+    margin: 20px;
+}
+
+.bento-recommend{
+display: grid;
+align-items: center;
+justify-content: start;
+   grid-template-areas: 
+       "box-1 box-2"
+       "box-3 box-4";
+   border: 10px solid black;
+   gap: 10px;
+   margin-top: 20px;
+}
+
+
+.bento-1{
+    grid-area: box-1;
+    width: 500px;
+}
+.bento-2{
+    grid-area: box-2;
+    width: 300px;
+
+}
+.bento-3{
+    grid-area: box-3;
+    width: 500px;
+}
+
+.bento-4{
+    grid-area: box-4;
+}
+
+<!--CONTACT.JS-->
+
+import { Link } from "react-router-dom";
+import { FaDiscord } from "react-icons/fa";
+import { BsTwitterX } from "react-icons/bs";
+import { FaInstagram } from "react-icons/fa";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaYoutube } from "react-icons/fa";
+import { FaTwitch } from "react-icons/fa";
+import "./Contact.css";
+
+function Contact() {
+  return (
+    <>
+      <div className="contact-container">
+        <div className="contacts-links">
+          <h1>Contacts:</h1>
+          <img src="/web-pikachu.png" className="con-img1" alt="pikachu"></img>
+          <div>
+            <h3>
+              Facing Tech issues, login problems, Bug reports, etc...Email Us
+              at:{" "}
+              <span>
+                <Link>Support@Rodeck.com</Link>
+              </span>
+            </h3>
+            <h3>
+              For Sponserships, Parnterships or Advertisement:{" "}
+              <span>
+                <Link>biz@Rodeck.com</Link>
+              </span>
+            </h3>
+            <h3>
+              Reviews and Media Kit:
+              <span>
+                <Link>Review@Rodeck.com</Link>
+              </span>
+            </h3>
+          </div>
+        </div>
+        <div className="social-media">
+          <h1>Social Media & Community Links:</h1>
+          <img src="/web-chibi.png" className="con-img2" alt="chibi polar bear doll"></img>
+          <div>
+            <a href="https://Discord.com/Channels/20398427" className="discord">
+              Discord
+              <span>
+                <FaDiscord color="#5865F2" fontSize="20px" />
+              </span>
+            </a>
+            <br />
+            <a href="https://x.com/R0deck" className="twitter">
+              Twitter
+              <span>
+                <BsTwitterX color="black" fontSize="20px" />
+              </span>
+            </a>
+            <br />
+            <a href="https://instagram.com/R0deck" className="instagram">
+              Instagram
+              <span>
+                <FaInstagram color="#E1306C" fontSize="20px" />
+              </span>
+            </a>
+            <br />
+            <a href="https://Facebook.com/R0deck" className="facebook">
+              Facebook
+              <span>
+                <FaFacebookSquare color="#1877F2" fontSize="20px" />
+              </span>
+            </a>
+            <br />
+            <a
+              href="https://www.youtube.com/channel/UChmZ6QbxgHlmX3ISIHxIpQQ"
+              className="youtube"
+            >
+              Youtube
+              <span>
+                <FaYoutube color="#FF0000" fontSize="20px" />
+              </span>
+            </a>
+            <br />
+            <a href="https://www.twitch.com/R0deck" className="twitch">
+              Twitch
+              <span>
+                <FaTwitch color="#6441A4" fontSize="20px" />
+              </span>
+            </a>
+          </div>
+        </div>
+        <div className="contact-form">
+          <h1>Contact Form:</h1>
+          <img src="/web-chibiglasses.png" className="con-img3" alt="chibi doll with glasses"></img>
+          <input type="text" placeholder="Name"></input>
+          <br />
+          <input type="email" placeholder="Email"></input>
+          <br />
+          <select>
+            <option value="valorant">--Select Here--</option>
+            <option value="Support">Support</option>
+            <option value="Feedback">Feedback</option>
+            <option value="Business">Business</option>
+            <option value="Others">Others</option>
+          </select><br/>
+          <textarea placeholder="Write Down Your Issues Here!" /><br/>
+          <button>Submit</button>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default Contact;
+
+
+<!--CONTACT.CSS-->
+
+.contact-container{
+    color: rgb(79, 126, 255);
+    padding: 30px;
+    margin:50px 10px;
+    background-color: rgb(19, 19, 19);
+    border-radius: 2em;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.contact-container h1{
+    text-decoration: underline;
+    text-decoration-style: solid;
+}
+
+.contact-container h3{
+    padding: 10px;
+    color: white;
+}
+
+.contacts-links{
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: #222;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.con-img1{
+    width: 250px;
+    height: 200px;
+    position: absolute;
+    right: 70px;
+    top: 177px;
+}
+
+.social-media{
+    padding: 30px;
+    margin-bottom: 20px;
+    background-color: #222;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.social-media a{
+    font-size: larger;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.social-media a:hover{
+    color: #fdfdfd;
+    text-decoration: underline;
+}
+
+.con-img2{
+    width: 260px;
+    height: 220px;
+    position: absolute;
+    right: 70px;
+    top: 456px; 
+}
+
+.discord{
+    color: #5865F2;
+}
+
+.twitter{
+    color: black;
+}
+
+.instagram{
+    color: #E1306C;
+}
+
+.facebook{
+    color: #1877F2;
+}
+
+.youtube{
+    color: #FF0000;
+}
+
+.twitch{
+    color: #6441A4;
+}
+
+.contact-form{
+    padding: 30px;
+    background-color: #222;
+    box-shadow: 1px 1px 8px 4px rgb(0, 0, 0);
+}
+
+.con-img3{
+    width: 200px;
+    height: 200px;
+    position: absolute;
+    right: 70px;
+    top: 750px; 
+}
+
+.contact-form textarea{
+    width: 300px;
+    height: 100px;
+    position: relative;
+    top: 5px;
+}
+
+.contact-form button{
+    padding-left: 20px;
+    padding-right: 20px;
+    margin: 30px;
+}
+
+<!--ABOUT.JS-->
+
+import { Link } from "react-router-dom";
+import "./About.css";
+
+function About() {
+  return (
+    <>
+      <div className="about-vid">
+        <video width="1000px" autoPlay loop>
+          <source
+            src="/vecteezy_a-glowing-pink-digital-grid-leading-to-a-distant-futuristic_56338698.mp4"
+            type="video/mp4"
+          ></source>
+        </video>
+      </div>
+      <div className="about-container">
+        <div className="welcome-container">
+          <h1>
+            Welcome to <span>Ro-deck</span> — your gateway to gaming without
+            limits.
+          </h1>
+          <p>
+            We’re more than just a digital storefront. We’re a platform built by
+            gamers, for gamers, with a mission to make discovering, playing, and
+            sharing games as seamless and exciting as possible. Whether you're
+            into indie gems, AAA blockbusters, or experimental new releases,
+            we’re here to make sure you never miss out.<br></br>
+            At Ro-deck, we believe in:<br></br>
+            <ul>
+              <li>
+                <span>Empowering developers</span> by offering fair revenue
+                shares and better discoverability
+              </li>
+              <li>
+                <span>Supporting players</span> with a clean, intuitive
+                experience
+              </li>
+              <li>
+                <span>Building community</span>, where both gamers and creators
+                can thrive
+              </li>
+            </ul>
+            This is just the <span>Beginning</span>. <span>Jump in</span> and{" "}
+            <span>Level up</span> your game.
+          </p>
+        </div>
+        <div className="store-container">
+          <h1>Browse Store</h1>
+          <p>
+            <span>Explore</span> a <span>Massive</span> collection of games
+            across every genre imaginable. Use powerful filters to{" "}
+            <span>Discover</span> new titles, <span>hidden gems</span>, and your
+            next favorite <span>Obsession</span>.
+          </p>
+          <h1>Top sellers</h1>
+          <p>
+            Check out what’s <span>Trending</span> and what everyone’s{" "}
+            <span>Playing</span> right now. Our top sellers list is constantly
+            updated so you can stay on top of the
+            <span>Hype</span>.
+          </p>
+          <h1>New Releases</h1>
+          <p>
+            <span>Fresh</span> from the devs — browse the newest games added to
+            our <span>Library</span>. Whether it’s a much-anticipated{" "}
+            <span>Launch</span> or a breakout <span>indie hit</span>, find it
+            here first.
+          </p>
+        </div>
+        <div className="support-container">
+          <h1>FAQ's?</h1>
+          <p>
+            <h2>
+              Got <span>Questions?</span> We've got <span>Answers</span>.
+            </h2>
+            Q: How do I install games?<br/>
+            <span>A</span>: After <span>purchasing</span> a game, just click “<span>Install</span>” from your Library. The <span>Client</span> will handle the rest. <br/><br/>
+            Q: Can I get a <span>Refund?</span><br/>
+            <span>A</span>: Yes — our refund policy allows you to <span>request</span> a refund within <span>14 days</span> of purchase, provided the game has been <span>played</span> for less than 2 hours. <br/><br/>
+            Q: Do you support cloud saves? <br/>
+            <span>A</span>: Yes, most games support <span>cloud saving</span>. You can enable it in <span>Settings</span>. <br/><br/>
+            Q: I forgot my password — what now? <br/>
+            <span>A</span>: Click “<span>Forgot Password</span>” on the login screen and follow the <span>instructions</span> to <span>reset</span> it securely.<br/><br/>
+          </p>
+        </div>
+        <div className="customer-container">
+          <h1>Customer Support</h1>
+          <p>If you need <span>personal assistance</span>, our <span>support team</span> is here to help.</p>
+          <ul>
+            <li>Email: <Link>Support@Rodeck.com</Link></li>
+            <li>Live Chat: Available Mon–Fri, 9 AM – 6 PM (UTC)</li>
+            <li>Submit a Ticket with Discord: <a href="https://Discord.com/Channels/20398427">Ticket</a></li>
+          </ul>
+        </div>
+        <div className="TOS">
+          <h1>Terms Of Services</h1>
+          <p>
+          By using <span>Ro-deck</span>, you agree to follow our <span>community guidelines</span>, respect <span>intellectual property</span>, and <span>play fair</span>. The full TOS outlines your <span>rights</span> and <span>responsibilities</span> when using our platform, including <span>account rules</span>, <span>payment terms</span>, and <span>refund eligibility</span>.
+          </p>
+        </div>
+      </div>
+    </>
+  );
+}
+
+export default About;
+
+<!--ABOUT.CSS-->
+
+.about-vid{
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+about-container{
+    color: white;
+}
+
+.welcome-container{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.about-container h1{
+    font-size: 40px;
+}
+
+.about-container p{
+    font-size: 20px;
+}
+
+.about-container span{
+    color: #8e2de2;
+}
+
+.store-container{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.support-container{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.customer-container{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.customer-container a{
+    color: #8e2de2;
+}
+
+.TOS{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+<!--GAMES.JS-->
+
+import "./Games.css";
+
+function Games() {
+    return (
+        <>
+        
+      <div className="game-vid">
+        <video width="1000px" autoPlay loop>
+          <source src="/web-video.mp4" type="video/mp4" />
+        </video>
+        <div className="game-vid-text">
+        <h1>READY TO PLAY?</h1>
+      </div>
+      </div>
+      <div className="game-main-container">
+        <h1>Games</h1>
+        <div className="game-container">
+          <a href="https://en.bandainamcoent.eu/elden-ring/elden-ring" target="_blank" rel="noopener noreferrer"><img src="https://m.media-amazon.com/images/I/61Hj5BHApPL._AC_UF350,350_QL50_.jpg" alt="Elden Ring"></img></a>
+          <a href="https://www.playstation.com/en-in/games/god-of-war-ragnarok/" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/en/e/ee/God_of_War_Ragnar%C3%B6k_cover.jpg"alt="God of war Ragnarok"></img></a>
+          <a href="https://zelda.nintendo.com/" target="_blank" rel="noopener noreferrer"><img src="https://m.media-amazon.com/images/I/61m+z+XRvZL._AC_UF1000,1000_QL80_.jpg"alt="The legends of zelda: Tears of the kingdom"></img></a>
+          <a href="https://www.minecraft.net/en-us" target="_blank" rel="noopener noreferrer"><img src="https://m.media-amazon.com/images/I/81BVunWt4US.jpg"alt="Minecraft"></img></a>
+          <a href="https://www.fortnite.com/" target="_blank" rel="noopener noreferrer"><img src="https://i.redd.it/kgc90m24qiw01.jpg"alt="Fortnite"></img></a>
+          <a href="https://www.callofduty.com/" target="_blank" rel="noopener noreferrer"><img src="https://images-cdn.ubuy.co.in/636f41a5037aeb76883e5513-call-of-duty-modern-warfare-2-key-art.jpg"alt="Call of duty modern warfare 2"></img></a>
+          <a href="https://www.rockstargames.com/gta-v" target="_blank" rel="noopener noreferrer"><img src="https://m.media-amazon.com/images/I/51MFu2e82VL.jpg"alt="GTA 5"></img></a>
+          <a href="https://www.rockstargames.com/reddeadredemption2" target="_blank" rel="noopener noreferrer"><img src="https://upload.wikimedia.org/wikipedia/en/4/44/Red_Dead_Redemption_II.jpg"alt="Red Dead Redumption 2"></img></a>
+          <a href="https://baldursgate3.game/" target="_blank" rel="noopener noreferrer"><img src="https://images-cdn.ubuy.co.in/66367d02ea6e0f1bcd394602-cinemaflix-baldur-39-s-gate-iii-game.jpg"alt="Baldur's gate 3"></img></a>
+          <a href="https://www.ea.com/games/apex-legends/apex-legends" target="_blank" rel="noopener noreferrer"><img src="https://i.pinimg.com/736x/a1/6e/f6/a16ef66d0f1c574546ebe7884761da88.jpg"alt="Apex legends"></img></a>
+          <a href="https://playvalorant.com/en-us/" target="_blank" rel="noopener noreferrer"><img src="https://images-cdn.ubuy.co.in/64adea22f264b3115e17ee3d-cinemaflix-valorant-game-poster-wall-art.jpg"alt="Valorant"></img></a>
+          <a href="https://www.counter-strike.net/" target="_blank" rel="noopener noreferrer"><img src="https://m.media-amazon.com/images/M/MV5BYjdlZjZlMTQtMTQwNS00MTBjLWE3YjQtM2Y3NjQ5ZWEzMzRmXkEyXkFqcGc@._V1_.jpg"alt="Counter Strike global offense 2"></img></a>
+          <a href="https://www.innersloth.com/games/among-us/" target="_blank" rel="noopener noreferrer"><img src="https://m.media-amazon.com/images/I/61t++N0mP1L._AC_UF894,1000_QL80_.jpg"alt="Among US"></img></a>
+          <a href="https://www.thewitcher.com/us/en/witcher3" target="_blank" rel="noopener noreferrer"><img src="https://m.media-amazon.com/images/I/818IT7fdTKL.jpg"alt="Witcher 3 wild hunt"></img></a>
+          <a href="https://genshin.hoyoverse.com/en/" target="_blank" rel="noopener noreferrer"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeFH6hKR4gWwggWFr8oYe9G1hGUY8tjJ1lwA&s"alt="Genshin impact"></img></a>
+        </div>
+      </div>
+      </>
+    );
+  }
+  
+export default Games;
+
+<!--GAMES.CSS-->
+
+.game-vid{
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+.game-vid video{
+    filter: brightness(25%);
+    width: 96vw;
+    height: 97vh;
+}
+
+.game-vid-text{
+    position: absolute;
+    color: white;
+    font-size: 75px;
+    opacity: 70%;
+    text-align: center;
+}
+
+.game-main-container{
+    font-size: 30px;
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.game-container{
+    display: grid;
+    padding: 10px;
+    position: relative;
+    bottom: 10px;
+    background-color: #222;
+    align-items: center;
+    justify-content: center;
+    border-radius: 1em;
+    grid-template-columns: auto auto auto;
+    gap: 20px;
+    column-gap: 90px;
+}
+
+.game-container img{
+    width: 300px;
+    border-radius: 1em;
+    box-shadow:0px 1px 8px 1px rgb(119, 119, 119);
+}
+
+<!--CONTENT.JS-->

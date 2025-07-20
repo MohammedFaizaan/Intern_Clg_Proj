@@ -1,0 +1,70 @@
+.about-vid{
+    display: flex;
+    background-color: black;
+    justify-content: center;
+    align-items: center;
+    margin-top: 5px;
+}
+
+about-container{
+    color: white;
+}
+
+.welcome-container{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.about-container h1{
+    font-size: 40px;
+}
+
+.about-container p{
+    font-size: 20px;
+}
+
+.about-container span{
+    color: #8e2de2;   
+}
+
+/* here */
+
+.store-container{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.support-container{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.customer-container{
+    margin-top: 10px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
+
+.customer-container a{
+    color: #8e2de2;
+}
+
+.TOS{
+    margin-top: 10px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: rgb(19, 19, 19);
+    box-shadow:0px 1px 8px 1px black;
+    color: white;
+}
